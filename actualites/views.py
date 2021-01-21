@@ -1,11 +1,12 @@
+
 from django.http import HttpResponse, Http404
 from django.template import loader
 from django.shortcuts import render
-from .models import Categories, Articles
+#from .models import Categories, Articles
 
 
 def index(request):
-    articles = Articles.objects.order_by('date') 
+    #articles = Articles.objects.all() 
     template = loader.get_template('actualites/index.html')
     return HttpResponse(template.render(request=request))
 
@@ -91,10 +92,10 @@ def search (request):
     obj = str(request.GET)
     query = request.GET['query']
     return HttpResponse(query)
-
+"""
 def lire_Article (request, id_Articles):
 
     article = Articles.objects.get(id=id)
     return render(request, 'actualites/lire.html', {{ article}})
-
+"""
 # Create your views here.

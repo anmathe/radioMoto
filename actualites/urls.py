@@ -4,7 +4,6 @@ from . import views # import views so we can use them in urls.
 
 
 urlpatterns = [
-   #url(r'^$', views.noseditions), # "/actualite" will call the view "editions" in "views.py"
    url(r'^index', views.index),
    url(r'^noseditions', views.noseditions),
    url(r'^emissions', views.emissions),
@@ -25,5 +24,5 @@ urlpatterns = [
    url(r'^Kinande', views.Kinande),
    url(r'^Swahili', views.Swahili),
    url(r'^search/$', views.search),
-   url(r'lire_article',views.lire_Article),
+
 ]

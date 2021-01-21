@@ -11,23 +11,22 @@ class Articles (models.Model):
     echoArticle = models.FileField(upload_to='uploads/%Y/%m/%d/')
     auteur = models.CharField(max_length=42)
     Categories = models.ForeignKey('Categories',on_delete=models.CASCADE,verbose_name="les categories")
-    
+    nombre_des_commentaires = models.IntegerField()
+    nombre_des_vues = models.IntegerField()
 
-    def __str__(self):
-        return self.titre
+    """def __str__(self):
+        return self.titre"""
 
 
 class Categories (models.Model):
     nomCat = models.CharField(max_length = 50)
     
-    def __str__(self):
-        return self.nomCat
 
 class sous_Categories (models.Model):
     nom_sousCat = models.CharField(max_length = 50)
     id_categorie = models.ForeignKey('categories',on_delete = models.CASCADE, verbose_name="les sous categories")
     
-    def __str__(self):
-        return self.nom_sousCat
+    """def __str__(self):
+        return self.nom_sousCat"""
 
 #class commentaires_visiteurs(models.model)

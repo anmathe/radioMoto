@@ -77,11 +77,16 @@ WSGI_APPLICATION = 'webRadioMoto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 #la creation de la base des donnes 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'radiomoto_data',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1', 
+        'PORT': '3306',
+        }
 }
 
 # Password validation
