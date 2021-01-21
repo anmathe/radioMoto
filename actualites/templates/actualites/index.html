@@ -1,110 +1,31 @@
 {% extends 'actualites/base.html' %}
 
-{% block contenue %}
-
-
-{% endblock %}
-	<!-- Services Section >
-	<section class="services-section">
-		<div class="auto-container">
-			<!- Sec Title >
-			<div class="sec-title">
-				<div class="title-inner">
-					<div class="title">Welcome to</div>
-					<h2>Industrial & Factory</h2>
-				</div>
-			</div>
-			
-			<div class="row clearfix">
-			
-				<!- Services Block >
-				<div class="services-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="oil-gas.html"><img src="images/resource/service-1.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<div class="upper-layer"></div>
-							<div class="lower-layer"></div>
-							<h3><a href="oil-gas.html">Oil and Gass Energy</a></h3>
-							<div class="text">Russia has become a major global player on my different levels in market....</div>
+{% block contenue %} 
+	<div class = "container">
+		<div class="row">
+			{% for article in article %}
+				<div class="col">
+					<div class="card" style="width: 18rem;">
+						<img src="{{article.imageArticle}}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{article.imageArticle}}</h5>
+							<p class="card-text">{{article.corps_du_texte}}</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 				</div>
-				
-				<! Services Block >
-				<div class="services-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="civil.html"><img src="images/resource/service-2.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<div class="upper-layer"></div>
-							<div class="lower-layer"></div>
-							<h3><a href="civil.html">Mechanical Engineering</a></h3>
-							<div class="text">Provide a wide range of services related to the basic line of engineering.....</div>
-						</div>
-					</div>
-				</div>
-				
-				<!- Services Block >
-				<div class="services-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="chemical-research.html"><img src="images/resource/service-3.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<div class="upper-layer"></div>
-							<div class="lower-layer"></div>
-							<h3><a href="chemical-research.html">Chemical Research</a></h3>
-							<div class="text">All chemical research involves one or moor core activities such so projects.....</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="row clearfix">
-				
-					<!- Services Block Two >
-					<div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box">
-							<div class="image">
-								<img src="images/resource/service-4.jpg" alt="" />
-							</div>
-							<h3><a href="agricultural-research.html">Energy & Power</a></h3>
-							<div class="text">Modern society consumes large amounts of fuel,</div>
-						</div>
-					</div>
-					
-					<!Services Block Two >
-					<div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="image">
-								<img src="images/resource/service-5.jpg" alt="" />
-							</div>
-							<h3><a href="agricultural-research.html">Agriculture Enginer</a></h3>
-							<div class="text">Agriculrure processing is the transformation ...</div>
-						</div>
-					</div>	
-					
-					<! Services Block Two >
-					<div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-						<div class="inner-box">
-							<div class="image">
-								<img src="images/resource/service-6.jpg" alt="" />
-							</div>
-							<h3><a href="agricultural-research.html">Civil Enginerring</a></h3>
-							<div class="text">Modern society consumes large amounts of fuel, </div>
-						</div>
-					</div>
-				
-				</div>	
-			
+			{% endfor %}
 		</div>
-	</section>
-	<!End Services Section -->
-	
+	</div> 
+{% endblock %}
+	<!--iv class="row">
+		{% for articles in Articles %}
+			<div class="col">
+				{{ Articles.titre }}
+				
+			</div>
+		{% endfor %}
+	</div-->
 	<!-- Project Section -->
 <!--	<section class="project-section">
 		<div class="auto-container">

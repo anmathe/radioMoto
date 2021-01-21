@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+#  See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'q!j9w&6=qm=^w@%+t@ia%yu8z-s6-ddf%@@-nwxghft&lt-dng'
@@ -32,13 +32,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'actualites.apps.ActualitesConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'actualites.apps.ActualitesConfig',
     
 ]
 
@@ -86,7 +87,12 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1', 
         'PORT': '3306',
-        }
+    'OPTIONS': {
+        'read_default_file': '/path/to/my.cnf',
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+    }
 }
 
 # Password validation
