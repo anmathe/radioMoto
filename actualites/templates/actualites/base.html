@@ -2,32 +2,31 @@
 <html
 {% load static %}>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-<title>RADIO MOTO OICHA </title>
-<!-- Stylesheets -->
-<!--link href="css/bootstrap.css" rel="stylesheet"-->
+    <title>RADIO MOTO OICHA </title>
+    <!-- Stylesheets -->
+    <!--link href="css/bootstrap.css" rel="stylesheet"-->
 
-<link rel="stylesheet" type="text/css" href="{% static 'actualites/css/bootstrap.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'actualites/css/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'actualites/css/css/slick.css' %}"/> 
-<!--link href="css/responsive.css" rel="stylesheet"-->
-<link rel="stylesheet" type="text/css" href="{% static 'actualites/css/responsive.css' %}" />
-<!--Color Switcher Mockup-->
-<link rel="stylesheet" type="text/css" href="{% static 'actualites/css/color-switcher-design.css' %}"/>
-<!--Color Themes-->
-<link id="theme-color-file" href="{% static 'actualites/color-themes/default-theme.css'%}"rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/slick.css' %}"/> 
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/custom_style.css' %}"/> 
+    <!--link href="css/responsive.css" rel="stylesheet"-->
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/responsive.css' %}" />
+    <!--Color Switcher Mockup-->
+    <link rel="stylesheet" type="text/css" href="{% static 'actualites/css/color-switcher-design.css' %}"/>
+    <!--Color Themes-->
+    <link id="theme-color-file" href="{% static 'actualites/color-themes/default-theme.css'%}"rel="stylesheet"/>
 
-<link rel="shortcut icon"  href="{% static 'actualites/images/favicon.png'%}" type="image/x-icon"/>
+    <link rel="shortcut icon"  href="{% static 'actualites/images/favicon.png'%}" type="image/x-icon"/>
 
-<link rel="icon" href="{% static 'actualites/images/favicon.png'%}" type="image/x-icon"/>
+    <link rel="icon" href="{% static 'actualites/images/favicon.png'%}" type="image/x-icon"/>
 
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 <body class="hidden-bar-wrapper">
 
@@ -49,9 +48,14 @@
                                 <li><span class="icon fa fa-map-marker"></span> oicha, NORD-KIVU, RDC.</li>
                             </ul>
                         </div>
+                        <!--top center -->>
+                        <div class = "">
+                            <a href="index.html"></a><img src="{% static 'actualites/images/logo-topCenter.png'%}" class="mx-auto d-block" alt="" title=""/></a>
+                        </div>
+
                         <!--Top Right-->
                         <div class="top-right">
-                            <div class="timing">l'actualité tous les jours du lundi au dimance, 24heures/24</div>
+                            <div class="timing">l'actualité 7 jours sur 7, 24heures/24</div>
                             <!--Social Box-->
                             <ul class="social-box">
                                 <li><a href="https://web.facebook.com/radiomotooicha/?_rdc=1&_rdré"><span class="fa fa-facebook"></span></a></li>
@@ -68,7 +72,7 @@
             <div class="header-upper">
                 <div class="auto-container">
                     <div class="clearfix">
-                        
+    
                         <div class="pull-left logo-box">
                             <div class="logo"><a href="index.html"></a><img src="{% static 'actualites /images/logo-small.png'%}" alt="" title=""/></a></div>
                         </div>
@@ -120,7 +124,7 @@
                                                         <li><a href="Autres_Emissions.html">Autres</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="dropdown"><a href="noseditions.html">Nos Editions</a>
+                                                <li class="dropdown"><a href="noseditions.html">Nos Journaux Parlés</a>
                                                     <ul>
                                                         <li><a href="Française.html">Française</a></li>
                                                         <li><a href="Swahili.html">Swahili</a></li>
@@ -136,39 +140,6 @@
                                     
                                         <!--Option Box-->
                                         <div class="option-box">
-                                            <!--Cart Box-->
-                                            <div class="cart-box">
-                                                <!--div class="dropdown">
-                                                    <button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-of-checkered-design"></span><span class="total-cart">2</span></button>
-                                                    <div class="dropdown-menu pull-right cart-panel" aria-labelledby="dropdownMenu3">
-    
-                                                        <!-div class="cart-product">
-                                                            <div class="inner">
-                                                                <div class="cross-icon"><span class="icon fa fa-remove"></span></div>
-                                                                <div class="image"><img src="images/resource/post-thumb-3.jpg" alt="" /></div>
-                                                                <h3><a href="shop-single.html">Flying Ninja</a></h3>
-                                                                <div class="quantity-text">Quantity 1</div>
-                                                                <div class="price">$99.00</div>
-                                                            </div>
-                                                        </div-->
-                                                        <!--div class="cart-product">
-                                                            <div class="inner">
-                                                                <div class="cross-icon"><span class="icon fa fa-remove"></span></div>
-                                                                <div class="image"><img src="images/resource/post-thumb-2.jpg" alt="" /></div>
-                                                                <h3><a href="shop-single.html">Patient Ninja</a></h3>
-                                                                <div class="quantity-text">Quantity 1</div>
-                                                                <div class="price">$99.00</div>
-                                                            </div>
-                                                        </div-->
-                                                        <!--div class="cart-total">Sub Total: <span>$198</span></div>
-                                                        <ul class="btns-boxed">
-                                                            <li><a href="shoping-cart.html">View Cart</a></li>
-                                                            <li><a href="checkout.html">CheckOut</a></li>
-                                                        </ul>
-    
-                                                    </div>
-                                                </div-->
-                                            </div>
                                             
                                             <!--Search Box-->
                                             <div class="search-box-outer">
@@ -238,7 +209,7 @@
                                             <li><a href="contact.html">Nous Contacter</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="noseditions.html">Nos Editions </a>
+                                    <li class="dropdown"><a href="noseditions.html">Nos Journaux Parlés </a>
                                         <ul>
                                             <li><a href="française.html">française</a></li>
                                             <li><a href="kiswahili.html">kiswahili</a></li>
@@ -264,37 +235,35 @@
         </header>
         <!--End Main Header -->
         <!--Main Slider -->
-        <section class="main-slider">
+        <section>
             
-            <div class="main-slider-carousel owl-carousel owl-theme">
+            <div class="">
                 
-                <div class="slide" >
+                <div >
                     <div class="auto-container">
                         <div class="content clearfix">
-                            {% block contenue %} {% endblock %}
+                            {% block contenue %}
+                            
+                                   
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
-                <div class="slide" >
+                <div >
                     <div class="auto-container">
                         <div class="content clearfix">
+                            {% block derniers %}
                             
+                                   
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
                 
-                <div class="slide" >
-                    <div class="auto-container">
-                        <div class="content clearfix">
-                            
-                        </div>
-                    </div>
-                </div-->
+               
                 
                 
             </div>
-            <!-- Left Title >
-            <div class="left-title">manufacturers</div-->
             
             <div class="auto-container">
                 <!-- Social Box -->
@@ -342,9 +311,6 @@
                                         <ul class="list">
                                             <li><a href="#">A Propos de Nous</a></li>
                                             <li><a href="#">Notre Equipe</a></li>
-                                            <!--li><a href="#">Case Studies</a></li>
-                                            <li><a href="#">Get a Quote</a></li>
-                                            <li><a href="#">Testimonials</a></li-->
                                             <li><a href="#">Nous contacter</a></li>
                                         </ul>
                                     </div>
@@ -353,8 +319,6 @@
                                             <li><a href="#">Nos Editions</a></li>
                                             <li><a href="#">Actualites</a></li>
                                             <li><a href="#">Emissions</a></li>
-                                            <!--li><a href="#">Why Choose Us</a></li>
-                                            <li><a href="#">Sustainability</a></li-->
                                             <li><a href="#">Termes & Conditions</a></li>
                                         </ul>
                                     </div>
@@ -362,29 +326,23 @@
                             </div>
                         </div>	
                         
-                        <!--Footer Column-->
+                        <!--Footer Column--
                         <div class="footer-column col-lg-4 col-md-6 col-sm-12">
                             <div class="footer-widget news-widget">
                                 <h2>Recent Post</h2>
                                 <div class="single-item-carousel owl-carousel owl-theme">
                                     <div class="slide">
-                                        <!--News Widget Block-->
+                                        <!-News Widget Block--
                                         <div class="news-widget-block">
                                             <div class="widget-inner">
-                                                <div class="image">
-                                                    <img src="{% static 'actualite/images/resource/news-image-1.jpg' %}" alt="" />
-                                                </div>
                                                 <div class="post-date">October 05, 2018</div>
                                                 <h3><a href="base.html">Nous sommes le meilleur site en information en territoire de Beni.</a></h3>
                                             </div>
                                         </div>
                                         
-                                        <!--News Widget Block-->
+                                        <!-News Widget Block--
                                         <div class="news-widget-block">
                                             <div class="widget-inner">
-                                                <div class="image">
-                                                    <img src="{% static 'actualite/images/resource/news-image-2.jpg' %}" alt="" />
-                                                </div>
                                                 <div class="post-date">August 14, 2018</div>
                                                 <h3><a href="base.html">We won the award for best factory of the year.</a></h3>
                                             </div>
@@ -392,23 +350,17 @@
                                     </div>
                                     
                                     <div class="slide">
-                                        <!--News Widget Block-->
+                                        <!-News Widget Block--
                                         <div class="news-widget-block">
                                             <div class="widget-inner">
-                                                <div class="image">
-                                                    <img src="{% static 'actualite/images/resource/news-image-1.jpg' %}" alt="" />
-                                                </div>
                                                 <div class="post-date">October 05, 2018</div>
                                                 <h3><a href="base.html">We are Best for Industrial and Business Solution.</a></h3>
                                             </div>
                                         </div>
                                         
-                                        <!--News Widget Block-->
+                                        <!-News Widget Block--
                                         <div class="news-widget-block">
                                             <div class="widget-inner">
-                                                <div class="image">
-                                                    <img src="{% static 'actualite/images/resource/news-image-2.jpg' %}" alt="" />
-                                                </div>
                                                 <div class="post-date">August 14, 2018</div>
                                                 <h3><a href="base.html">We won the award for best factory of the year.</a></h3>
                                             </div>
@@ -417,20 +369,21 @@
                                     
                                 </div>
                             </div>
-                        </div>	
+                        </div-->	
                         
                     </div>
                 </div>
             </div>
             
             <!-- Footer Bottom -->
+            
             <div class="footer-bottom">
                 <div class="auto-container">
                     <div class="row clearfix">
                         
                         <!-- Copyright Column -->
                         <div class="copyright-column col-lg-6 col-md-12 col-sm-12">
-                            <div class="copyright"><a href="#">ce site a été conçus par Anuarite Mathe</a></div>
+                            <div class="copyright"><a href="https://www.linkedin.com/in/anuarite-mathe-362141201/"> conçu par Anuarite Mathe @nMathe2020</a></div>
                         </div>
                         
                         <!-- Social Column -->
@@ -449,11 +402,12 @@
             
         </footer>
         
-        </div>
         <!--End pagewrapper-->
 
         <!--Scroll to top-->
-        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+        <div class="scroll-to-top scroll-to-target" data-target="html">
+            <span class="fa fa-arrow-up"></span>
+        </div>
             <!--script src="js/jquery.js"></script-->
         <script src="{% static 'actualites/js/jquery.js' %}"></script>
 
@@ -463,7 +417,7 @@
 
         <script src="{% static 'actualites/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
         <script src="{% static 'actualites/js/jquery.fancybox.js' %}"></script>
-        <script src="{% static 'actualites/js/appear.js' %}"></script>
+        <!-- <script src="{% static 'actualites/js/appear.js' %}"></script> -->
         <script src="{% static 'actualites/js/owl.js' %}"></script>
         <script src="{% static 'actualites/js/wow.js' %}"></script>
         <script src="{% static 'actualites/js/slick.js' %}"></script>

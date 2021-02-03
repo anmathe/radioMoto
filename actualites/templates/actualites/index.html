@@ -1,364 +1,122 @@
 {% extends 'actualites/base.html' %}
 
 {% block contenue %} 
-	<div class = "container">
-		<div class="row">
-			{% for article in article %}
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="{{article.imageArticle}}" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">{{article.imageArticle}}</h5>
-							<p class="card-text">{{article.corps_du_texte}}</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+
+	<!--LE SLIDE-->
+	<div class = "panel col-lg-12 col-md-12" id="corps">
+
+
+	</div>
+	<!--LES DERNIERS ARTICLES-->
+	<div class="panel col-lg-12 col-md-12" >
+		<div class="panel-header bg-dark">
+			<h4 class="panel-title">LES PLUS RECENTS</h4>
+		</div>
+		<div class="row ">
+			{% for dernier in derniers %}
+				<div class="panel-body ">
+					<div class="col col-lg-12 col-md-12">
+						<div class="card" style="width: 18rem;">
+							<img class="card-img-top" src="{{article.imageArticle}}" alt="{{article.source.image}}">
+							<!--img src="{{article.imageArticle}}" class="card-img-top" alt="..."-->
+							<div class="card-body">
+								<h5 class="card-title">{{article.imageArticle}}</h5>
+								<p class="card-text">{{article.corps_du_texte}}</p>
+								<a href="#" class="btn btn-primary">come here</a>
+							</div>
 						</div>
 					</div>
+				</div>	
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class = "container" >
+		<div class="panel-header bg-primary">
+			<h4 class="panel-title">TOUS LES ARTICLES</h4>
+		</div>
+		<div class="row">
+			{% for article in article %}
+				<div class="panel-body ">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src={{article.imageArticle}} class="card-img-top" alt="{{article.source.image}}">
+							<div class="card-body">
+								<h5 class="card-title">{{article.imageArticle}}</h5>
+								<p class="card-text">{{article.corps_du_texte |truncatewords_html:25 }}</p>
+								<a href="#" class="btn btn-primary">lire la suite</a>
+							</div>
+						</div>
+					</div>	
 				</div>
 			{% endfor %}
 		</div>
 	</div> 
-{% endblock %}
-	<!--iv class="row">
-		{% for articles in Articles %}
-			<div class="col">
-				{{ Articles.titre }}
-				
-			</div>
-		{% endfor %}
-	</div-->
-	<!-- Project Section -->
-<!--	<section class="project-section">
-		<div class="auto-container">
-			<! Sec Title >
-			<div class="sec-title">
-				<div class="title-inner">
-					<div class="title">Our Work</div>
-					<h2>Ongoing Projects</h2>
-				</div>
-			</div> -->
-			<!--<div class="four-item-carousel owl-carousel owl-theme">
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-1.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-1.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-2.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-2.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-3.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-3.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-4.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-4.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-1.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-1.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-2.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-2.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-3.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-3.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-4.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-4.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-			</div>
+
+	<!-- <button class="btn btn-primary">Bouton primaire</button>
+					<button class="btn btn-success">Bouton success</button>
+					<button class="btn btn-default">Bouton default</button>
+					
+					<button class="btn btn-warning">Bouton warning</button>
+					<button class="btn btn-danger">Bouton danger</button>
+					<button class="btn btn-secondary">Bouton secondary</button> -->
+
+
 			
-		</div>
-	</section>
-	<! End Project Section -->
-	<!-- Team Section -->
-	<!--<section class="team-section">
-		<div class="auto-container">
-			<div class="row clearfix">
+{% endblock %}
+	
 				
-				<! Title Column >
-				<div class="title-column col-lg-3 col-md-12 col-sm-12">
-					<div class="inner-column">
-						<! Sec Title >
-						<div class="sec-title">
-							<div class="title-inner">
-								<div class="title">Our team</div>
-								<h2>Expert Members</h2>
-							</div>
+				
+				
+				<!---- Project Block >
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="images/resource/project-1.jpg" alt="" />
+							<! Overlay Box >
+							<div class="overlay-box">
+								<div class="icons">
+									<a class="plus" href="images/resource/project-1.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
+									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
+								</div>
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="team.html">Pre Construction</a></h3>
+										<div class="category">Agriculture, Chemical</div>
+									</div>
+								</div>
+							</div>	
+							
 						</div>
-						<div class="text">Suspendisse tempus, enim at convallis maximus, ex ante faucibus lorem, at rhoncus justo tellus at eros.</div>
 					</div>
 				</div>
 				
-				<! Carousel Column >
-				<div class="carousel-column col-lg-9 col-md-12 col-sm-12">
-					<div class="inner-column">
-						<div class="team-carousel owl-carousel owl-theme">
-							
-							<!Team Block>
-							<div class="team-block">
-								<div class="inner-box">
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-1.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
+				<! Project Block >
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="images/resource/project-2.jpg" alt="" />
+							<! Overlay Box >
+							<div class="overlay-box">
+								<div class="icons">
+									<a class="plus" href="images/resource/project-2.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
+									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
+								</div>
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="team.html">Pre Construction</a></h3>
+										<div class="category">Agriculture, Chemical</div>
 									</div>
 								</div>
-							</div>
+							</div>	
 							
-							<! Team Block >
-							<div class="team-block">
-								<div class="inner-box">
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-2.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
-									</div>
-								</div>
-							</div>
+						</div>
+					</div>
+				</div>
+				
+				
 							
-							<!Team Block >
-							<div class="team-block">
-								<div class="inner-box">
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-3.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
-									</div>
-								</div>
-							</div>
 							
-							<! Team Block>
-							<div class="team-block">
-								<div class="inner-box">
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-1.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
-									</div>
-								</div>
-							</div>
-							
-							<!Team Block>
-							<div class="team-block">
-								<div class="inner-box">
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-2.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
-									</div>
-								</div>
-							</div>
-							
-							<!Team Block>
-							<div class="team-block">
-								<div class="inner-box">
 									<div class="border-one"></div>
 									<div class="border-two"></div>
 									<div class="image">
