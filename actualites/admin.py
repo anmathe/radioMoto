@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Articles, Categories, sous_Categories, Emissions, LesEditions, AproposdeNous_laRadio, AproposdeNous_NotreEquipe, AproposdeNous_ProjetdAvenir
+from .models import Articles, Categories, sous_Categories, Emissions, LesEditions, AproposdeNous_laRadio, AproposdeNous_NousContacter, AproposdeNous_NotreEquipe, AproposdeNous_ProjetdAvenir
 
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = ('titre', 'auteur', 'date', 'apercu_contenu')
@@ -45,3 +45,4 @@ admin.site.register(AproposdeNous_NotreEquipe)
 admin.site.register(AproposdeNous_ProjetdAvenir)
 admin.site.register(Emissions, EmissionsAdmin)
 admin.site.register(LesEditions)
+admin.site.register(AproposdeNous_NousContacter)

@@ -1,9 +1,13 @@
 {% extends 'actualites/base.html' %}
 
-{% block contenue %}
+{% block lire %}
 
-<h1>{{ article.titre }} <span class="small">dans {{article.categorie.nomCat }}</span></h1>
-    <p class="actualites">Rédigé par {{ Articles.auteur }}, le {{ Articles.date|date:"DATE_FORMAT" }}</p> 
-    <div class="corps_du_texte">{{ Articles.contenu|linebreaks }}</div>   
+    <div class="container" id = 'corps'>
 
-{% enblock %}
+        <h1>{{ article.titre }} <span class="small"> dans {{ article.Categories.nomCat }}</span></h1>
+        <p class="infos">Rédigé par {{ article.auteur }}, le {{ article.date|date:"DATE_FORMAT" }}</p>
+        <div class="contenu">{{ article.corps_du_texte|linebreaks }}</div>
+        
+    </div>
+
+{% endblock%}

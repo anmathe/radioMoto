@@ -3,13 +3,31 @@
 {% block contenue %} 
 
 	<!--LE SLIDE-->
-	<div class = "panel col-lg-12 col-md-12" id="corps">
-
-
+	<div class = container id="corps">
+		<div class = "Carousel slide" data-ride = "carousel" >
+			<div class = "carousel-inner ">
+				<div class = "carousel-item">
+					<h1> carousel</h1>
+						<!--div class="card" style="width: 18rem;"->
+						{% for articleSlide in articleSlides %}
+							<!-div class ="card-img-top  card-img-top-300"-->
+								<img class="active" src="{{ articleSlide.imageArticle }}" alt="...">
+								
+							<!--div class="card-body">
+								</div>
+								<h5 class="card-title">{{articleSlide.titre}}</h5>
+								<a href="#" class="btn btn-primary">come here</a>
+							</div>
+						{% endfor%}
+						</div-->
+					
+				</div>
+			</div>
+		</div>
 	</div>
 	<!--LES DERNIERS ARTICLES-->
 	<div class="panel col-lg-12 col-md-12" >
-		<div class="panel-header bg-dark">
+		<div class="panel-header bg-secondary text-white">
 			<h4 class="panel-title">LES PLUS RECENTS</h4>
 		</div>
 		<div class="row ">
@@ -17,11 +35,10 @@
 				<div class="panel-body ">
 					<div class="col col-lg-12 col-md-12">
 						<div class="card" style="width: 18rem;">
-							<img class="card-img-top" src="{{article.imageArticle}}" alt="{{article.source.image}}">
-							<!--img src="{{article.imageArticle}}" class="card-img-top" alt="..."-->
 							<div class="card-body">
-								<h5 class="card-title">{{article.imageArticle}}</h5>
-								<p class="card-text">{{article.corps_du_texte}}</p>
+								<!--h5 class="card-title">{{article.imageArticle}}</h5-->
+								<img  src="{{article.imageArticle.url}}" alt="{{article.imageArticle}}">
+								<p class="card-text">{{dernier.corps_du_texte |truncatewords_html:20 }}</p>
 								<a href="#" class="btn btn-primary">come here</a>
 							</div>
 						</div>
@@ -29,38 +46,62 @@
 				</div>	
 			{% endfor %}
 		</div>
+		<div class="navbar-collapse collapse">
+		
+			<ul class="navbar-nav ml-auto">
+				{% for Categories in Categorie  %}
+				  <li class="nav-item">
+					  <a class="nav-link" href="y">{{ nomCat }}</a> 
+				 </li>
+				{% endfor %}
+			</ul>
+		</div>
+	
 	</div>
 
 	<div class = "container" >
-		<div class="panel-header bg-primary">
+		<div class="panel-header bg-secondary text-white">
 			<h4 class="panel-title">TOUS LES ARTICLES</h4>
 		</div>
 		<div class="row">
-			{% for article in article %}
+			{% for articles in article %}
 				<div class="panel-body ">
 					<div class="col">
 						<div class="card" style="width: 18rem;">
-							<img src={{article.imageArticle}} class="card-img-top" alt="{{article.source.image}}">
+							<img src={{article.imageArticle}} class="card-img-top" alt="{{articles.source.image}}">
 							<div class="card-body">
-								<h5 class="card-title">{{article.imageArticle}}</h5>
-								<p class="card-text">{{article.corps_du_texte |truncatewords_html:25 }}</p>
-								<a href="#" class="btn btn-primary">lire la suite</a>
+								<h5 class="card-title">{{articles.imageArticle}}</h5>
+								<p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
+								<h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
 							</div>
 						</div>
 					</div>	
 				</div>
 			{% endfor %}
 		</div>
+		<div class="navbar-collapse collapse">
+		
+			<ul class="navbar-nav ml-auto">
+				{% for Categories in Categorie  %}
+				  <li class="nav-item">
+					  <a class="nav-link" href="#">{{ nomCat }}</a> 
+				 </li>
+				{% endfor %}
+			</ul>
+		</div>
+	
 	</div> 
-
-	<!-- <button class="btn btn-primary">Bouton primaire</button>
-					<button class="btn btn-success">Bouton success</button>
-					<button class="btn btn-default">Bouton default</button>
-					
-					<button class="btn btn-warning">Bouton warning</button>
-					<button class="btn btn-danger">Bouton danger</button>
-					<button class="btn btn-secondary">Bouton secondary</button> -->
-
+	
+	<div class="navbar-collapse collapse">
+		
+		<ul class="navbar-nav ml-auto">
+			{% for Categories in Categorie  %}
+			  <li class="nav-item">
+				  <a class="nav-link" href="y">{{ nomCat }}</a> 
+			 </li>
+			{% endfor %}
+		</ul>
+	</div>
 
 			
 {% endblock %}
@@ -90,59 +131,18 @@
 						</div>
 					</div>
 				</div>
-				
-				<! Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-2.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-2.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-				
-				
-							
-							
-									<div class="border-one"></div>
-									<div class="border-two"></div>
-									<div class="image">
-										<a href="team.html"><img src="images/resource/team-3.png" alt="" /></a>
-										<ul class="social-icons">
-											<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-											<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-											<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-											<li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>
-										</ul>
-									</div>
-									<div class="lower-box">
-										<h3><a href="team.html">Monica Wagase</a></h3>
-										<div class="designation">Camical officer</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
+	<!-p><a href="{% url "blog.views.lire" article.id %}">Lire la suite</a->
 	</section>
 	<! End Team Section >
+
+	
+	<!- <button class="btn btn-primary">Bouton primaire</button>
+					<button class="btn btn-success">Bouton success</button>
+					<button class="btn btn-default">Bouton default</button>
+					
+					<button class="btn btn-warning">Bouton warning</button>
+					<button class="btn btn-danger">Bouton danger</button>
+					<button class="btn btn-secondary">Bouton secondary</button> ->
 	
 	<! Testimonial Section >
 	<section class="testimonial-section">
@@ -155,43 +155,7 @@
 				</div>
 			</div>
 			
-			<div class="single-item-carousel owl-carousel owl-theme">
-				
-				<! Testimonial Block >
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/author-1.jpg" alt="" />
-							<span class="quote-icon flaticon-left-quote"></span>
-						</div>
-						<h3>Camron Mobita</h3>
-						<div class="text">The Forexnic loan has been the most attractive loan products on the market, helping numerous businesses gain access to financing they would not be able to obtain conventionally and at extremely favorable rates and terms.</div>
-					</div>
-				</div>
-				
-				<! Testimonial Block >
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/author-1.jpg" alt="" />
-							<span class="quote-icon flaticon-left-quote"></span>
-						</div>
-						<h3>Camron Mobita</h3>
-						<div class="text">The Forexnic loan has been the most attractive loan products on the market, helping numerous businesses gain access to financing they would not be able to obtain conventionally and at extremely favorable rates and terms.</div>
-					</div>
-				</div>
-				
-				<! Testimonial Block >
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/author-1.jpg" alt="" />
-							<span class="quote-icon flaticon-left-quote"></span>
-						</div>
-						<h3>Camron Mobita</h3>
-						<div class="text">The Forexnic loan has been the most attractive loan products on the market, helping numerous businesses gain access to financing they would not be able to obtain conventionally and at extremely favorable rates and terms.</div>
-					</div>
-				</div>
+			<div class="single-item-carousel owl-carousel owl-theme"
 				
 			</div>
 			
@@ -216,60 +180,7 @@
 						</div>
 						
 						<! News Block >
-						<div class="news-block">
-							<div class="inner-box">
-								<div class="row clearfix">
-									<! Image Column >
-									<div class="image-column col-lg-6 col-md-6 col-sm-12">
-										<div class="column-inner">
-											<div class="image">
-												<img src="images/resource/news-1.jpg" alt="" />
-												<div class="image-layer" style="background-image:url(images/resource/news-1.jpg)"><a class="overlay-link" href="blog-single.html"></a></div>
-											</div>
-										</div>
-									</div>
-									<! Content Column >
-									<div class="content-column col-lg-6 col-md-6 col-sm-12">
-										<div class="column-inner">
-											<ul class="post-info">
-												<li>24th August 2019</li>
-												<li>Machnical Engineering</li>
-											</ul>
-											<h3><a href="blog-single.html">Collaboration through advanced touch base UI</a></h3>
-											<div class="text">Baseline the procedure and samepage your department. Golden goose. Social currency. Those options are already baked in with this model run it up the flagpole.</div>
-										</div>
-									</div>	
-								</div>
-							</div>
-						</div>
 						
-						<! News Block >
-						<div class="news-block">
-							<div class="inner-box">
-								<div class="row clearfix">
-									<! Image Column >
-									<div class="image-column col-lg-6 col-md-6 col-sm-12">
-										<div class="column-inner">
-											<div class="image">
-												<img src="images/resource/news-2.jpg" alt="" />
-												<div class="image-layer" style="background-image:url(images/resource/news-1.jpg)"><a class="overlay-link" href="blog-single.html"></a></div>
-											</div>
-										</div>
-									</div>
-									<! Content Column ->
-									<div class="content-column col-lg-6 col-md-6 col-sm-12">
-										<div class="column-inner">
-											<ul class="post-info">
-												<li>24th August 2019</li>
-												<li>Machnical Engineering</li>
-											</ul>
-											<h3><a href="blog-single.html">Lean into that problem proceduralize.</a></h3>
-											<div class="text">Baseline the procedure and samepage your department. Golden goose. Social currency. Those options are already baked in with this model run it up the flagpole.</div>
-										</div>
-									</div>	
-								</div>
-							</div>
-						</div>
 						
 					</div>
 				</div>

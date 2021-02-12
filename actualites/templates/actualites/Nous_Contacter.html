@@ -1,13 +1,13 @@
 {% extends 'actualites/base.html' %}
 
-{% block Contenue %}
+{% load crispy_forms_tags %}
 
-    {% if envoi %}Votre message a bien été envoyé !{% endif %}
+{% block derniers %}
 
-    <form action="form" method="post">
+    <form action="form" method="post" id = 'corps'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="envoyer" />
+        {{ form|crispy }}
+        <input type="submit" value="envoyer" class = "btn btn-secondary" />
     </form>
 
 {% endblock %}

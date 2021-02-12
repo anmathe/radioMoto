@@ -11,7 +11,7 @@ urlpatterns = [
    url(r'^apropos_de_nous', views.apropos_de_nous),
    url(r'^Notre_Equipe', views.Notre_Equipe),
    url(r'^Projet_d_Avenir', views.Projet_d_Avenir),
-   url(r'^Nous_Contacter', views.Nous_Contacter),
+   url(r'^Nous_Contacter', views.Nous_Contacter, name = 'Nous_Contacter'),
    url(r'^Réligieuse', views.Réligieuse),
    url(r'^santé', views.santé),
    url(r'^Politique', views.Politique),
@@ -22,5 +22,6 @@ urlpatterns = [
    url(r'^Française', views.Française),
    url(r'^Kinande', views.Kinande),
    url(r'^Swahili', views.Swahili),
-  # url(r'^lecture', views.lire),
+   url('articles/(?P<id>\d+)$', views.lire, name = 'lire'),
+
 ]

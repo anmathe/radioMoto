@@ -2,6 +2,13 @@
 
 {% block contenue %}
 
-Salut ! ce sont les éditions dein
+    <div class="container">
+        {% for edition in article_editions %}
+            <div>
+                <p> {{edition.edition}} </p>
+            </div>
+        {% endfor %}
+    </div>
+
 
 {% endblock %}
