@@ -1,7 +1,7 @@
 
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect 
 from django.forms import ModelForm
 from .formulaire import ContactForm
 from django.core.mail import BadHeaderError, send_mail
@@ -11,6 +11,7 @@ from .models import Articles, Categories, sous_Categories, LesEditions, Emission
 
 def index(request):
     article = Articles.objects.all()
+    art = list(Articles.objects.values())
     articleSlides= Articles.objects.filter(article_A_la_une= True)[:4]
     derniers = Articles.objects.order_by('date')[:6]
     Categorie = Categories.objects.all()
@@ -18,29 +19,27 @@ def index(request):
     data = {
         'article': article,
         'derniers' : derniers,
-        'articleSlides' :articleSlides, 
-        'Categorie' : Categorie
+       'Categorie' : Categorie,
+       'art':art
+        
         }
         # methode qui nous permet d afficher les articles
     return render(request,'actualites/index.html', data)
 
 def lire(request,id):
-    # try:
     article = get_object_or_404(Articles, id=id)
-    #article = Articles.objects.get(id=pk)
-    context = {'article':article}
-    # except Article.DoesNotExist:
-        # raise Http404
+    
+    context = {
+        'article':article
+    }
     return render(request,'actualites/lire.html',context)
 
-#
 
 # def send_email(request):
 #     nom_contact = request.POST.get('Noms_contact', '')
 #     message_object = request.POST.get ('objet_Message','')
 #     client_email = request.POST.get('mail', '')
-#     message = request.POST.get('message', '')
-    
+#     message = request.POST.get('message', '')   
 #     if Noms_contact and objet_Message and mail and message :
 #         try:
 #             send_mail(nom_contact, message_object, client_email, message, ['anuaritemathe11@gmail.com'])
@@ -78,24 +77,24 @@ def Notre_Equipe(request):
     return render(request,'actualites/Notre_Equipe.html', {'Notre Equipe':article_team})
 
 
-def Projet_d_Avenir(request):
-    article_projects = AproposdeNous_ProjetdAvenir.objects.filter( Categories = 'notre Equipe')
-    return render(request, 'actualites/Projet_d_Avenir.html', {'Notre Projects': article_projects})
-
-
 def Nous_Contacter(request):
+
+    form = ContactForm(request.POST or None)
+    
     if request.method == 'POST': 
-        form = ContactForm()
+        
         if form.is_valid():
             Noms = form.cleaned_data['Noms']
             objet_Message = form.cleaned_data ['objet_Message']
             Mail= form.cleaned_data['Mail']
             message = form.cleaned_data['message']
-
             
-            envoi = True
-    else: 
-       form = ContactForm() # Nous créons un formulaire vide
+            form.save()
+
+            send_mail(Noms, objet_Message, message, Mail, ['anuaritemathe11@gmail.com'], fail_silently=False)
+            return redirect('/Nous_Contacter')
+        else: 
+            form = form_class() # Nous créons un formulaire vide
 
     return render(request, 'actualites/Nous_Contacter.html', {'form': form})
 

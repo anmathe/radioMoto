@@ -7,7 +7,9 @@ class Articles (models.Model):
     imageArticle = models.ImageField(blank = True, null = True, upload_to="Galeries_RMO/") 
     slug = models.SlugField(max_length=100)
     corps_du_texte = models.TextField(null=True)
+
     date = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Date de parution")
+  
     echoArticle = models.FileField(blank = True, null = True, upload_to='uploads/%Y/%m/%d/')
     auteur = models.CharField(max_length=42)
     Categories = models.ForeignKey('Categories', on_delete=models.CASCADE, verbose_name="les categories")

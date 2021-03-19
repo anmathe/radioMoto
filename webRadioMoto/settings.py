@@ -60,6 +60,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webRadioMoto.urls'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -144,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/Galeries_RMO/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Galeries_RMO/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Galeries_RMO')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/')
 ]

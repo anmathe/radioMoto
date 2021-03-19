@@ -26,41 +26,58 @@
 		</div>
 	</div>
 	<!--LES DERNIERS ARTICLES-->
-	<div class="panel col-lg-12 col-md-12" >
-		<div class="panel-header bg-secondary text-white">
-			<h4 class="panel-title">LES PLUS RECENTS</h4>
+	<div class = "row col-md-12">
+		
+		<div class = "row col-md-2" style="margin-right: 1%; border: 0.5px solid gray; border-radius: 1%;">
+			
+				<div class="panel">
+					<div class="panel-header text-black" style="padding-top: 2%;">
+						<h5 class="panel-title">CATEGORIES</h5>	
+					</div>
+					<div class="panel-body">
+                        <ol class="navbar-nav ">
+							{% for cat in Categorie  %}
+							<li class="nav-item">
+								<a class="nav-link" href="">{{ cat.nomCat }}</a> 
+							</li>
+							{% endfor %}
+						</ol>
+					</div>
+				</div>
 		</div>
-		<div class="row ">
-			{% for dernier in derniers %}
-				<div class="panel-body ">
-					<div class="col col-lg-12 col-md-12">
-						<div class="card" style="width: 18rem;">
-							<div class="card-body">
-								<!--h5 class="card-title">{{article.imageArticle}}</h5-->
-								<img  src="{{article.imageArticle.url}}" alt="{{article.imageArticle}}">
-								<p class="card-text">{{dernier.corps_du_texte |truncatewords_html:20 }}</p>
-								<a href="#" class="btn btn-primary">come here</a>
+
+		<div class="panel col-lg-10 col-md-6" >
+			<div class="panel-header bg-secondary text-white " style="padding-inline-start: 1%;">
+				<h4 class="panel-title">LES PLUS RECENTS </h4>	
+			</div>
+			<div class="row ">
+				{% for dernier in derniers %}
+					<div class="panel-body ">
+						<div class="col col-lg-6 col-md-3">
+							<div class="card" style="width: 18rem;">
+								<div class="card-body">
+									{% if dernier.imageArticle %}
+    									<img src="{{dernier.imageArticle.url}}" alt="{{dernier.titre}}" style="width: 200px; height: 200px;">
+										<p class="card-title">{{dernier.titre}}</p>
+										<p class="card-text">{{dernier.corps_du_texte|truncatewords_html:16}}</p>
+										<h3><a href="{% url 'lire' dernier.id %}">lire la suite</a></h3>
+									{% else %}
+										<p class="card-title">{{dernier.titre}}</p>
+										<p class="card-text">{{dernier.corps_du_texte|truncatewords_html:16}}</p>
+										<h3><a href="{% url 'lire' dernier.id %}">lire la suite</a></h3>
+									{% endif %}
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>	
-			{% endfor %}
-		</div>
-		<div class="navbar-collapse collapse">
-		
-			<ul class="navbar-nav ml-auto">
-				{% for Categories in Categorie  %}
-				  <li class="nav-item">
-					  <a class="nav-link" href="y">{{ nomCat }}</a> 
-				 </li>
+					</div>	
 				{% endfor %}
-			</ul>
+			</div>
+		
 		</div>
 	
 	</div>
-
 	<div class = "container" >
-		<div class="panel-header bg-secondary text-white">
+		<div class="panel-header bg-secondary text-white " style="margin-top : 2%">
 			<h4 class="panel-title">TOUS LES ARTICLES</h4>
 		</div>
 		<div class="row">
@@ -68,244 +85,28 @@
 				<div class="panel-body ">
 					<div class="col">
 						<div class="card" style="width: 18rem;">
-							<img src={{article.imageArticle}} class="card-img-top" alt="{{articles.source.image}}">
-							<div class="card-body">
-								<h5 class="card-title">{{articles.imageArticle}}</h5>
-								<p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
-								<h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
-							</div>
+							{% if articles.imageArticle %}
+								<img src="{{articles.imageArticle.url}}" class="card-img-top" alt="{{articles.source.image}}">
+								<div class="card-body">
+									<h5 class="card-title">{{articles.titre}}</h5>
+									<p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
+									<h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
+								</div>
+								{% else %}
+								<div class="card-body">
+									<h5 class="card-title">{{articles.titre}}</h5>
+									<p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
+									<h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
+								</div>
+							{% endif %}
 						</div>
 					</div>	
 				</div>
+				
 			{% endfor %}
-		</div>
-		<div class="navbar-collapse collapse">
-		
-			<ul class="navbar-nav ml-auto">
-				{% for Categories in Categorie  %}
-				  <li class="nav-item">
-					  <a class="nav-link" href="#">{{ nomCat }}</a> 
-				 </li>
-				{% endfor %}
-			</ul>
 		</div>
 	
 	</div> 
-	
-	<div class="navbar-collapse collapse">
-		
-		<ul class="navbar-nav ml-auto">
-			{% for Categories in Categorie  %}
-			  <li class="nav-item">
-				  <a class="nav-link" href="y">{{ nomCat }}</a> 
-			 </li>
-			{% endfor %}
-		</ul>
-	</div>
 
 			
 {% endblock %}
-	
-				
-				
-				
-				<!---- Project Block >
-				<div class="project-block">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/resource/project-1.jpg" alt="" />
-							<! Overlay Box >
-							<div class="overlay-box">
-								<div class="icons">
-									<a class="plus" href="images/resource/project-1.jpg" data-fancybox="gallery-1" data-caption=""><span class="flaticon-plus-symbol"></span></a>
-									<a class="link" href="team.html"><span class="icon flaticon-link"></span></a>
-								</div>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h3><a href="team.html">Pre Construction</a></h3>
-										<div class="category">Agriculture, Chemical</div>
-									</div>
-								</div>
-							</div>	
-							
-						</div>
-					</div>
-				</div>
-	<!-p><a href="{% url "blog.views.lire" article.id %}">Lire la suite</a->
-	</section>
-	<! End Team Section >
-
-	
-	<!- <button class="btn btn-primary">Bouton primaire</button>
-					<button class="btn btn-success">Bouton success</button>
-					<button class="btn btn-default">Bouton default</button>
-					
-					<button class="btn btn-warning">Bouton warning</button>
-					<button class="btn btn-danger">Bouton danger</button>
-					<button class="btn btn-secondary">Bouton secondary</button> ->
-	
-	<! Testimonial Section >
-	<section class="testimonial-section">
-		<div class="auto-container">
-			<! Sec Title >
-			<div class="sec-title">
-				<div class="title-inner">
-					<div class="title">Automate & Simplify The Whole Process</div>
-					<h2>What Clients Saying</h2>
-				</div>
-			</div>
-			
-			<div class="single-item-carousel owl-carousel owl-theme"
-				
-			</div>
-			
-		</div>
-	</section>
-	<! End Testimonial Section -->
-	
-	<!-- Default Section >
-	<section class="default-section">
-		<div class="outer-container">
-			<div class="clearfix">
-				
-				<! News Column >
-				<div class="news-column">
-					<div class="inner-column">
-						<! Sec Title >
-						<div class="sec-title">
-							<div class="title-inner">
-								<div class="title">Latest News and Artical</div>
-								<h2>Company Blogs</h2>
-							</div>
-						</div>
-						
-						<! News Block >
-						
-						
-					</div>
-				</div>
-				
-				<! Form Column >
-				<div class="form-column" style="background-image:url(images/background/2.jpg)">
-					<div class="inner-column">
-						<! Sec Title -->
-						<!-- <div class="sec-title light">
-							<div class="title-inner">
-								<div class="title">information details</div>
-								<h2>Request a Quote</h2>
-							</div>
-						</div>
-						
-						<! Quote Form ->
-						<div class="quote-form">
-								
-							<! Contact Form ->
-							<form method="post" action="http://ary-themes.com/html/buliten/contact.html">
-								<div class="row clearfix">
-								
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="username" placeholder="Your Name" required>
-									</div>
-									
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="email" placeholder="Email" required>
-									</div>
-									
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="phone" placeholder="Phone" required>
-									</div>
-									
-									<!-Form Group->
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<select class="custom-select-box">
-											<option>Service Required</option>
-											<option>Service One</option>
-											<option>Service Two</option>
-											<option>Service Three</option>
-											<option>Service Four</option>
-										</select>
-									</div>
-									
-									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									
-									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Get A Quote</button>
-									</div>
-									
-								</div>
-							</form>
-						</div>
-						
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</section>-->
-	<!-- End Default Section -->
-	
-	<!--Sponsors Section-->
-    <!--section class="sponsors-section">
-    	<div class="auto-container">
-        	
-            <div class="sponsors-outer">
-                <Sponsors Carousel>
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/4.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/5.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a></figure></li>
-                    <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a></figure></li>
-                </ul>
-            </div>
-            
-        </div>
-	</section-->
-	
-    <!--End Sponsors Section-->
-	
-	<!--Main Footer-->
-    
-
-<!-- Color Palate / Color Switcher -->
-
-<!--div class="color-palate">
-    <div class="color-trigger">
-        <i class="fa fa-paint-brush"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-            <span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-            <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-			<span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
-            <span class="palate lightblue-color" data-theme-file="css/color-themes/lightblue-color.css"></span>
-            <span class="palate pink-color" data-theme-file="css/color-themes/pink-theme.css"></span>
-            <span class="palate hotpink-color" data-theme-file="css/color-themes/hotpink-color.css"></span>
-        </div>
-    </div>
-	
-	<ul class="box-version option-box"> <li class="box">Boxed</li> <li>Full width</li></ul>
-	<ul class="rtl-version option-box"> <li class="rtl">RTL Version</li> <li>LTR Version</li> </ul>
-	
-    <a href="#" class="purchase-btn">Purchase now $17</a>
-    
-    <div class="palate-foo">
-        <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
-    </div>
-
-</div-->
-

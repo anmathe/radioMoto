@@ -3,11 +3,22 @@
 {% block lire %}
 
     <div class="container" id = 'corps'>
-
+        
         <h1>{{ article.titre }} <span class="small"> dans {{ article.Categories.nomCat }}</span></h1>
         <p class="infos">Rédigé par {{ article.auteur }}, le {{ article.date|date:"DATE_FORMAT" }}</p>
-        <div class="contenu">{{ article.corps_du_texte|linebreaks }}</div>
-        
+        {% if article.imageArticle or article.echoArticle %}
+            <img src="{{article.imageArticle.url}}" class="card-img-top" alt="{{article.source.image}}">
+            <div class="contenu">
+                <p >{{ article.corps_du_texte|linebreaks }}</p>
+                <audio controls>
+                    <source src="{{article.echoArticle.url}}" type="audio/mp3">
+                </audio>    
+            </div>
+
+        {% else %}
+            <div class="contenu">{{ article.corps_du_texte|linebreaks }}</div>
+        {% endif %}
     </div>
+    
 
 {% endblock%}

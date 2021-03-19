@@ -100,11 +100,8 @@
                                                 <li class="current"><a href="index.html">Acceuil</a></li>
                                                 <li class="dropdown"><a href="apropos_de_nous.html">A Propos de Nous</a>
                                                     <ul>
-                                                        <li><a href="La_Radio.html">La Radio</a></li>
                                                         <li><a href="Notre_Equipe.html">Notre Equipe</a></li>
-                                                        <li><a href="Projet_d_Avenir.html">Projet d'Avenir</a></li>
                                                         <li><a href="Nous_Contacter.html">Nous Contacter</a></li>
-                                                        <!--li><a href="comming-soon.html">Comming Soon</a></li-->
                                                     </ul>
                                                 </li>
                                                 <li class="dropdown"><a href="actualités.html">actualites</a>
@@ -161,8 +158,7 @@
                                             </div>
                                             
                                         </div>
-                                    </div-->
-                                    <div class="side-curve"></div>
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -196,30 +192,11 @@
                             
                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="base.html">Acceuil</a>
-                                        <ul>
-                                            <li class="dropdown"><a href="#">Header Styles</a></li>
-                                        </ul>
-                                    </li>
+                                    <li class="current dropdown"><a href="index.html">Acceuil</a></li>
                                     <li class="dropdown"><a href="apropos_de_nous.html"> A propos de nous </a>
                                         <ul>
-                                            <li><a href="about.html">La radio</a></li>
-                                            <li><a href="team.html">Notre equipe</a></li>
-                                            <li><a href="comming-soon.html">Projet d'avenir</a></li>
-                                            <li><a href="contact.html">Nous Contacter</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="noseditions.html">Nos Journaux Parlés </a>
-                                        <ul>
-                                            <li><a href="française.html">française</a></li>
-                                            <li><a href="kiswahili.html">kiswahili</a></li>
-                                            <li><a href="kinande.html">kinande</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="emissions.html">Emissions</a>
-                                        <ul>
-                                            <li><a href="Réligieuse.html">Réligieuse</a></li>
-                                            <li><a href="Autre.html">Autres</a></li>
+                                            <li><a href="Notre_Equipe.html">Notre equipe</a></li>
+                                            <li><a href="Nous_Contacter.html">Nous Contacter</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -258,7 +235,6 @@
                                     
                                 {% endblock %}
                             </div>
-                    <   /div>
                     </div>
                 </div>
                 <div >
@@ -270,18 +246,21 @@
                         </div>
                     </div>
                 </div>
+                <div >
+                    <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block nous %}
+                                   
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
                 
-               
-                
-                
-            </div>
-            
             <div class="auto-container">
                 <!-- Social Box -->
                 <div class="social-box">
                     <a href="#"><span class="fa fa-facebook"></span></a>
                     <a href="#"><span class="fa fa-twitter"></span></a>
-                    <a href="#"><span class="fa fa-skype"></span></a>
                     <a href="#"><span class="fa fa-google-plus"></span></a>
                 </div>
             </div>
@@ -302,13 +281,12 @@
                         <div class="footer-column col-lg-4 col-md-6 col-sm-12">
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
-                                    <a href="base.html"><img src="{% static 'actualites/images/logo-small - footer-logo.png' %}" alt="" /></a>
-                                     
+                                    <a href="index.html"><img src="{% static 'actualites/images/logo-small - footer-logo.png' %}" alt="" /></a>
                                 </div>
-                                <div class="text"> <p> Votre Rédaction Web reste ouverte à vos annonces, publicités… Contactez-nous pour accorder une visibilité incontournable à vos Produits, Marques et Activités qui seront consommés par plus de 200 000 internautes.</p>la radio,nous éclaires,  <a href="#">Read More.</a></div>
+                                <div class="text"> 
+                                    <p> Votre Rédaction Web reste ouverte à vos annonces, publicités… Contactez-nous pour accorder une visibilité incontournable à vos Produits, Marques et Activités qui seront consommés par plus de 200 000 internautes.</p>la radio,nous éclaires,  <a href="#">Read More.</a></div>
                                 <ul class="list-style-one">
                                     <li><span class="icon flaticon-map-1"></span>OICHA, NORD-KIVU, RDC.</li>
-                                    <!--li><span class="icon flaticon-mail"></span>Office & Factory: +0 625-07520-6644 & 6655 </li-->
                                 </ul>
                             </div>
                         </div>
@@ -330,58 +308,11 @@
                                             <li><a href="#">Nos Editions</a></li>
                                             <li><a href="#">Actualites</a></li>
                                             <li><a href="#">Emissions</a></li>
-                                            <li><a href="#">Termes & Conditions</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>	
-                        
-                        <!--Footer Column--
-                        <div class="footer-column col-lg-4 col-md-6 col-sm-12">
-                            <div class="footer-widget news-widget">
-                                <h2>Recent Post</h2>
-                                <div class="single-item-carousel owl-carousel owl-theme">
-                                    <div class="slide">
-                                        <!-News Widget Block--
-                                        <div class="news-widget-block">
-                                            <div class="widget-inner">
-                                                <div class="post-date">October 05, 2018</div>
-                                                <h3><a href="base.html">Nous sommes le meilleur site en information en territoire de Beni.</a></h3>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-News Widget Block--
-                                        <div class="news-widget-block">
-                                            <div class="widget-inner">
-                                                <div class="post-date">August 14, 2018</div>
-                                                <h3><a href="base.html">We won the award for best factory of the year.</a></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="slide">
-                                        <!-News Widget Block--
-                                        <div class="news-widget-block">
-                                            <div class="widget-inner">
-                                                <div class="post-date">October 05, 2018</div>
-                                                <h3><a href="base.html">We are Best for Industrial and Business Solution.</a></h3>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-News Widget Block--
-                                        <div class="news-widget-block">
-                                            <div class="widget-inner">
-                                                <div class="post-date">August 14, 2018</div>
-                                                <h3><a href="base.html">We won the award for best factory of the year.</a></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div-->	
-                        
+                        </div>	   
                     </div>
                 </div>
             </div>
@@ -423,12 +354,10 @@
         <script src="{% static 'actualites/js/jquery.js' %}"></script>
 
         <script src="{% static 'actualites/js/popper.min.js' %}"></script>
-        <!--script src="js/bootstrap.min.js"></script-->
         <script src="{% static 'actualites/js/bootstrap.min.js' %}"></script>
 
         <script src="{% static 'actualites/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
         <script src="{% static 'actualites/js/jquery.fancybox.js' %}"></script>
-        <!-- <script src="{% static 'actualites/js/appear.js' %}"></script> -->
         <script src="{% static 'actualites/js/owl.js' %}"></script>
         <script src="{% static 'actualites/js/wow.js' %}"></script>
         <script src="{% static 'actualites/js/slick.js' %}"></script>

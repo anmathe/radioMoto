@@ -4,7 +4,7 @@
 
 {% block derniers %}
 
-    <form action="form" method="post" id = 'corps'>
+    <form method="POST" class = "post-form" id = 'corps'>
         {% csrf_token %}
         {{ form|crispy }}
         <input type="submit" value="envoyer" class = "btn btn-secondary" />
