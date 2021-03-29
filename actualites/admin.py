@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Articles, Categories, sous_Categories, Emissions, LesEditions, AproposdeNous_laRadio, AproposdeNous_NousContacter, AproposdeNous_NotreEquipe, AproposdeNous_ProjetdAvenir
+from .models import Articles, Categories, sous_Categories, Emissions, LesEditions_Francaise, LesEditions_Kinande, LesEditions_swahili, AproposdeNous_laRadio, AproposdeNous_NousContacter, AproposdeNous_NotreEquipe, AproposdeNous_ProjetdAvenir
 
 class ArticlesAdmin(admin.ModelAdmin):
     list_display = ('titre', 'auteur', 'date', 'apercu_contenu')
@@ -30,12 +30,26 @@ class EmissionsAdmin(admin.ModelAdmin):
     search_fields = ['titreEmission']
 
 
-class LesEditionsAdmin(admin.ModelAdmin):
-    list_display = ('deskEditions', 'dateEditions ')
-    list_filter = ('deskEditions', 'dateEditions')
-    search_fields = ('deskEditions', 'dateEditions')
+class LesEditions_FrancaiseAdmin(admin.ModelAdmin):
+    list_display = ('desk_francais', 'dateEditions ')
+    list_filter = ('desk_francais', 'dateEditions')
+    search_fields = ('desk_francais', 'dateEditions')
     date_hierarchy = 'dateEditions'
-    ordering = ('dateEditions')
+    ordering = 'dateEditions'
+
+class LesEditions_swahiliAdmin(admin.ModelAdmin):
+    list_display = ('desk_swahili', 'dateEditions ')
+    list_filter = ('desk_swahili', 'dateEditions')
+    search_fields = ('desk_swahili', 'dateEditions')
+    date_hierarchy = 'dateEditions'
+    ordering = 'dateEditions'
+
+class LesEditions_KinandeAdmin(admin.ModelAdmin):
+    list_display = ('desk_kinande', 'dateEditions ')
+    list_filter = ('desk_kinande', 'dateEditions')
+    search_fields = ('desk_kinande', 'dateEditions')
+    date_hierarchy = 'dateEditions'
+    ordering = 'dateEditions'
 
 admin.site.register(Categories )
 admin.site.register(Articles, ArticlesAdmin )
@@ -44,5 +58,7 @@ admin.site.register(AproposdeNous_laRadio, laRadioAdmin)
 admin.site.register(AproposdeNous_NotreEquipe)
 admin.site.register(AproposdeNous_ProjetdAvenir)
 admin.site.register(Emissions, EmissionsAdmin)
-admin.site.register(LesEditions)
+admin.site.register(LesEditions_Francaise)
+admin.site.register(LesEditions_swahili)
+admin.site.register(LesEditions_Kinande)
 admin.site.register(AproposdeNous_NousContacter)

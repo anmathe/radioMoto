@@ -1,0 +1,12 @@
+{% extends 'actualites/base.html' %}
+
+{% block journaux_KINANDE %}
+    <div id = "corps">
+        {% for audios in audioK %} 
+            <p class="info">Journal KINANDE du {{ audios.desk_kinande}}, publié le {{ audios.dateEditions|date:"DATE_FORMAT" }}</p>
+            <audio controls>
+                <source src="{{audios.enregistrementJournal.url}}" type="audio/mp3">
+            </audio> 
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'actualites/base.html' %}
+
+    {% block actualites_religieuses %}
+        <div class = "container" id = "corps">
+            <div class="row">
+                {% for articles in articles_religieuse %}
+                    <div class="panel-body ">
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                {% if articles.imageArticle %}
+                                    <img src="{{articles.imageArticle.url}}" class="card-img-top" alt="{{articles.source.image}}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{articles.titre}}</h5>
+                                        <p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
+                                        <h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
+                                    </div>
+                                    {% else %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{articles.titre}}</h5>
+                                        <p class="card-text">{{articles.corps_du_texte |truncatewords_html:25 }}</p>
+                                        <h3><a href="{% url 'lire' articles.id %}">lire la suite</a></h3>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>	
+                    </div>
+                    
+                {% endfor %}
+            </div>
+
+        </div> 
+
+    {% endblock %}

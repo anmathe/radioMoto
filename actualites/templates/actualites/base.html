@@ -100,6 +100,7 @@
                                                 <li class="current"><a href="index.html">Acceuil</a></li>
                                                 <li class="dropdown"><a href="apropos_de_nous.html">A Propos de Nous</a>
                                                     <ul>
+                                                        <li><a href="apropos_de_nous.html">Notre Mission</a></li>
                                                         <li><a href="Notre_Equipe.html">Notre Equipe</a></li>
                                                         <li><a href="Nous_Contacter.html">Nous Contacter</a></li>
                                                     </ul>
@@ -195,6 +196,7 @@
                                     <li class="current dropdown"><a href="index.html">Acceuil</a></li>
                                     <li class="dropdown"><a href="apropos_de_nous.html"> A propos de nous </a>
                                         <ul>
+                                            <li><a href="apropos_de_nous.html">Notre Mission</a></li>
                                             <li><a href="Notre_Equipe.html">Notre equipe</a></li>
                                             <li><a href="Nous_Contacter.html">Nous Contacter</a></li>
                                         </ul>
@@ -228,6 +230,36 @@
                 </div>
                 <div >
                     <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block journaux_FRANCAIS %}
+                            
+                                   
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block journaux_SWAHILI %}
+                            
+                                   
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block journaux_KINANDE %}
+                            
+                                   
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div class="auto-container">
                         <div class="row justify-content-center">
                             <div class="content clearfix">
                                 {% block derniers %}
@@ -241,7 +273,8 @@
                     <div class="auto-container">
                         <div class="content clearfix">
                             {% block lire %}
-                                   
+                            
+                            
                             {% endblock %}
                         </div>
                     </div>
@@ -250,7 +283,36 @@
                     <div class="auto-container">
                         <div class="content clearfix">
                             {% block nous %}
+                            
+                            
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block emission %}
+                            
+                            
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="auto-container">
+                    <div class="content clearfix">
+                        {% block mission %}
                                    
+                        {% endblock %}
+                    </div>
+                </div>
+                <div >
+                    <div class="auto-container">
+                        <div class="content clearfix">
+                            {% block actualites_religieuses %}
+                            
+                            
                             {% endblock %}
                         </div>
                     </div>

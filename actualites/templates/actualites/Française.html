@@ -1,0 +1,12 @@
+{% extends 'actualites/base.html' %}
+
+{% block journaux_FRANCAIS %}
+    <div id = "corps">
+        {% for audios in audio %} 
+            <p class="info">Journal Français du {{ audios.desk_francais}}, publié le {{ audios.dateEditions|date:"DATE_FORMAT" }}</p>
+            <audio controls>
+                <source src="{{audios.enregistrementJournal.url}}" type="audio/mp3">
+            </audio> 
+        {% endfor %}
+    </div>
+{% endblock %}

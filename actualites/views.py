@@ -6,7 +6,7 @@ from django.forms import ModelForm
 from .formulaire import ContactForm
 from django.core.mail import BadHeaderError, send_mail
 from .models import AproposdeNous_NousContacter
-from .models import Articles, Categories, sous_Categories, LesEditions, Emissions, AproposdeNous_NotreEquipe, AproposdeNous_laRadio, AproposdeNous_ProjetdAvenir
+from .models import Articles, Categories, sous_Categories, LesEditions_Francaise, LesEditions_swahili, LesEditions_Kinande, Emissions, AproposdeNous_NotreEquipe, AproposdeNous_laRadio, AproposdeNous_ProjetdAvenir
 
 
 def index(request):
@@ -14,14 +14,11 @@ def index(request):
     art = list(Articles.objects.values())
     articleSlides= Articles.objects.filter(article_A_la_une= True)[:4]
     derniers = Articles.objects.order_by('date')[:6]
-    Categorie = Categories.objects.all()
 
     data = {
         'article': article,
         'derniers' : derniers,
-       'Categorie' : Categorie,
-       'art':art
-        
+        'art':art
         }
         # methode qui nous permet d afficher les articles
     return render(request,'actualites/index.html', data)
@@ -56,25 +53,30 @@ def actualités(request):
     return render(request,'actualites/actualités.html', {'article': article_actualites})
     
 
-def noseditions(request):
-    article_editions = LesEditions.objects.filter( Categories = 'nos Editions')
-
-    return render(request,'actualites/noseditions.html', {'LesEditions': article_editions})
-    
-
-def emissions(request):
-    article_Emissions = Emissions.objects.filter( Categories = 'emissions')
-    return render(request,'actualites/emissions.html', {'LesEmissions':article_Emissions})
-    
-
 def apropos_de_nous(request):
-    article_AboutUs = AproposdeNous_laRadio.objects.filter( Categories = 'la Radio')
-    return render(request,'actualites/apropos_de_nous.html', {'a propos de nous':article_AboutUs })
+    template = loader.get_template('actualites/apropos_de_nous.html')
+    return HttpResponse(template.render(request=request))
     
 
 def Notre_Equipe(request):
     article_team = AproposdeNous_NotreEquipe.objects.filter( Categories = 'notre Equipe')
     return render(request,'actualites/Notre_Equipe.html', {'Notre Equipe':article_team})
+
+
+def Française(request):
+    audio = LesEditions_Francaise.objects.order_by ('-dateEditions')[:5]
+    return render(request,'actualites/Française.html', {'audio': audio})
+
+
+def Swahili(request):
+    audioS = LesEditions_swahili.objects.order_by ('-dateEditions')[:5]
+    return render(request,'actualites/Swahili.html', {'audioS': audioS})
+    #audioS veut dire audio swahili
+
+
+def Kinande(request):
+    audioK = LesEditions_Kinande.objects.order_by ('-dateEditions')[:5]
+    return render(request,'actualites/Kinande.html', {'audioK': audioK})
 
 
 def Nous_Contacter(request):
@@ -84,7 +86,7 @@ def Nous_Contacter(request):
     if request.method == 'POST': 
         
         if form.is_valid():
-            Noms = form.cleaned_data['Noms']
+            Noms = form.cleaned_data['Noms_contact']
             objet_Message = form.cleaned_data ['objet_Message']
             Mail= form.cleaned_data['Mail']
             message = form.cleaned_data['message']
@@ -100,43 +102,37 @@ def Nous_Contacter(request):
 
 
 def Réligieuse(request):
-    template = loader.get_template('actualites/Réligieuse.html')
-    return HttpResponse(template.render(request=request))
+    articles_religieuse = Articles.objects.filter(sous_Categories_id=11)
+    return render(request,'actualites/Réligieuse.html', {'articles religieuse':articles_religieuse})
+
 
 def santé(request):
-    template = loader.get_template('actualites/santé.html')
-    return HttpResponse(template.render(request=request))
+    articles_sante = Articles.objects.filter(sous_Categories='Sante')
+    return render(request,'actualites/santé.html', {'articles sante':articles_sante})
 
 def Politique(request):
-    template = loader.get_template('actualites/Politique.html')
-    return HttpResponse(template.render(request=request))
+    articles_politique = Articles.objects.filter(sous_Categories='politique')
+    return render(request,'actualites/Politique.html', {'articles politique':articles_politique})
 
 def Economique(request):
-    template = loader.get_template('actualites/Economique.html')
-    return HttpResponse(template.render(request=request))
+    articles_economique = Articles.objects.filter(sous_Categories='economique')
+    return render(request,'actualites/Economique.html', {'articles economique':articles_economique})
+
 
 def Autres_Actualites(request):
-    template = loader.get_template('actualites/Autres_Actualites.html')
-    return HttpResponse(template.render(request=request))
+    articles_autres = Articles.objects.filter(sous_Categories='autres actualites')
+    return render(request,'actualites/Autres_Actualites.html', {'articles autres':articles_autres })
+
+def emissions(request):
+    article_Emissions = Emissions.objects.filter( Categories = 'emissions')
+    return render(request,'actualites/emissions.html', {'LesEmissions':article_Emissions})
+    
 
 def Emission_Réligieuse(request):
     template = loader.get_template('actualites/Emission_Réligieuse.html')
     return HttpResponse(template.render(request=request))
 
+
 def Autres_Emissions(request):
     template = loader.get_template('actualites/Autres_Emissions.html')
     return HttpResponse(template.render(request=request))
-
-def Française(request):
-    template = loader.get_template('actualites/Française.html')
-    return HttpResponse(template.render(request=request))
-
-def Kinande(request):
-    template = loader.get_template('actualites/Kinande.html')
-    return HttpResponse(template.render(request=request))
-
-def Swahili(request):
-    template = loader.get_template('actualites/Swahili.html')
-    return HttpResponse(template.render(request=request))
-
-# Create your views here.template = loader.get_template('actualites/index.html')

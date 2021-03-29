@@ -89,11 +89,26 @@ class Emissions(models.Model):
         return self.titreEmission 
 
 
-class LesEditions (models.Model):
-    deskEditions =  models.CharField(max_length=100)
+class LesEditions_Francaise (models.Model):
+    desk_francais =  models.CharField(max_length=100)
     dateEditions = models.DateTimeField(auto_now_add=True, verbose_name = "date de l'Edition")
-    enregistrementJournal = models.FileField(blank = True, null = True, upload_to='jounalsLangues/%Y/%m/%d/')
-    Categories = models.ForeignKey('Categories', on_delete=models.CASCADE, verbose_name="les categories", null = True)
+    enregistrementJournal = models.FileField(blank = True, null = True, upload_to='jounalFrancais/%Y/%m/%d/')
 
     def __str__(self):
-        return self.deskEditions 
+        return self.desk_francais
+
+class LesEditions_swahili (models.Model):
+    desk_swahili =  models.CharField(max_length=100)
+    dateEditions = models.DateTimeField(auto_now_add=True, verbose_name = "date de l'Edition")
+    enregistrementJournal = models.FileField(blank = True, null = True, upload_to='jounalswahili/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.desk_swahili
+    
+class LesEditions_Kinande (models.Model):
+    desk_kinande =  models.CharField(max_length=100)
+    dateEditions = models.DateTimeField(auto_now_add=True, verbose_name = "date de l'Edition")
+    enregistrementJournal = models.FileField(blank = True, null = True, upload_to='jounalsLangues/%Y/%m/%d/')
+
+    def __str__(self):
+        return self.desk_kinande

@@ -1,0 +1,12 @@
+{% extends 'actualites/base.html' %}
+
+{% block journaux_SWAHILI %}
+    <div id = "corps">
+        {% for audios in audioS %} 
+            <p class="info">Journal Swahili du {{ audios.desk_swahili}}, publié le {{ audios.dateEditions|date:"DATE_FORMAT" }}</p>
+            <audio controls>
+                <source src="{{audios.enregistrementJournal.url}}" type="audio/mp3">
+            </audio> 
+        {% endfor %}
+    </div>
+{% endblock %}
