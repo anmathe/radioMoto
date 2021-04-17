@@ -32,21 +32,21 @@ def lire(request,id):
     return render(request,'actualites/lire.html',context)
 
 
-# def send_email(request):
-#     nom_contact = request.POST.get('Noms_contact', '')
-#     message_object = request.POST.get ('objet_Message','')
-#     client_email = request.POST.get('mail', '')
-#     message = request.POST.get('message', '')   
-#     if Noms_contact and objet_Message and mail and message :
-#         try:
-#             send_mail(nom_contact, message_object, client_email, message, ['anuaritemathe11@gmail.com'])
-#         except BadHeaderError:
-#             return HttpResponse('Invalid header found.')
-#         return HttpResponseRedirect('/contact/thanks/')
-#     else:
-#         # In reality we'd use a form class
-#         # to get proper validation errors.
-#         return HttpResponse('rassurez-vous que tous les champs sont rempli')
+def send_email(request):
+     nom_contact = request.POST.get('Noms_contact', '')
+     message_object = request.POST.get ('objet_Message','')
+     client_email = request.POST.get('mail', '')
+     message = request.POST.get('message', '')   
+     if Noms_contact and objet_Message and mail and message :
+         try:
+             send_mail(nom_contact, message_object, client_email, message,to= ['anuaritemathe11@gmail.com',])
+         except BadHeaderError:
+             return HttpResponse('Invalid header found.')
+         return HttpResponseRedirect('/contact/thanks/')
+     else:
+         # In reality we'd use a form class
+         # to get proper validation errors.
+        return HttpResponse('rassurez-vous que tous les champs sont rempli')
 
 def actualités(request):
     article_actualites = Articles.objects.filter( Categories = 'actualites')
@@ -86,14 +86,16 @@ def Nous_Contacter(request):
     if request.method == 'POST': 
         
         if form.is_valid():
-            Noms = form.cleaned_data['Noms_contact']
-            objet_Message = form.cleaned_data ['objet_Message']
-            Mail= form.cleaned_data['Mail']
+            noms = form.cleaned_data['Noms_contact']
+            objet_Message = form.cleaned_data['objet_Message']
+            mail= form.cleaned_data['mail']
             message = form.cleaned_data['message']
-            
-            form.save()
+            recipient = ['anuaritemathe11@gmail.com',]
 
-            send_mail(Noms, objet_Message, message, Mail, ['anuaritemathe11@gmail.com'], fail_silently=False)
+            form.save()
+            
+            send_mail(noms, objet_Message, mail, message, recipient, auth_user=None, auth_password=None, connection=None, html_message=None)
+            #send_mail (self, 'Noms', 'objet_Message', 'message', 'Mail',  fail_silently=False)
             return redirect('/Nous_Contacter')
         else: 
             form = form_class() # Nous créons un formulaire vide
